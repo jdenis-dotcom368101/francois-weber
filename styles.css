@@ -1,0 +1,109 @@
+:root{
+  --color-accent:#a8672a;
+  --ink:#16150f;
+  --ink-doux:#5d5a4f;
+  --papier:#f7f4ee;
+  --papier-fonce:#eee9df;
+  --trait:#ddd6c7;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--papier);color:var(--ink);
+  font-family:'Inter',-apple-system,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.65;font-weight:400;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--ink);text-decoration-color:var(--trait);text-underline-offset:3px}
+a:hover{text-decoration-color:var(--color-accent)}
+
+.container{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* ---------- En-tête ---------- */
+.site-header{
+  border-bottom:1px solid var(--trait);background:var(--papier);
+  position:sticky;top:0;z-index:10;
+}
+.site-header .inner{
+  max-width:1080px;margin:0 auto;padding:20px 28px;
+  display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.site-logo{
+  font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:700;
+  letter-spacing:-.01em;text-decoration:none;
+}
+.site-nav{display:flex;gap:26px}
+.site-nav a{
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  color:var(--ink-doux);text-decoration:none;padding-bottom:3px;
+  border-bottom:1px solid transparent;
+}
+.site-nav a:hover,.site-nav a[aria-current="page"]{
+  color:var(--ink);border-bottom-color:var(--color-accent);
+}
+
+/* ---------- Titres ---------- */
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.2;letter-spacing:-.015em}
+h1{font-size:clamp(31px,4.6vw,50px);margin:.4em 0 .3em}
+h2{font-size:clamp(23px,2.7vw,31px);margin:1.9em 0 .5em}
+h3{font-size:20px;margin:1.6em 0 .4em}
+
+/* ---------- Fil d'Ariane ---------- */
+.breadcrumb{
+  font-size:12px;letter-spacing:.05em;color:var(--ink-doux);
+  padding:22px 0 0;
+}
+.breadcrumb a{color:var(--ink-doux);text-decoration:none}
+.breadcrumb a:hover{color:var(--color-accent)}
+
+/* ---------- Article ---------- */
+article p{margin:0 0 1.15em}
+article ul,article ol{margin:0 0 1.3em;padding-left:1.25em}
+article li{margin-bottom:.45em}
+article blockquote{
+  margin:1.8em 0;padding:2px 0 2px 22px;border-left:2px solid var(--color-accent);
+  font-family:'Playfair Display',Georgia,serif;font-size:21px;line-height:1.45;
+}
+article table{border-collapse:collapse;width:100%;margin:1.6em 0;font-size:15px}
+article th,article td{border:1px solid var(--trait);padding:9px 12px;text-align:left}
+article th{background:var(--papier-fonce);font-weight:600}
+
+/* ---------- Accueil ---------- */
+.hero{padding:82px 0 60px;border-bottom:1px solid var(--trait)}
+.hero .accroche{
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--color-accent);font-weight:700;margin:0 0 14px;
+}
+.hero h1{margin-top:0;max-width:17ch}
+.hero .chapo{font-size:20px;line-height:1.6;color:var(--ink-doux);max-width:60ch;margin:0}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;padding:70px 0}
+.duo figcaption{font-size:13px;color:var(--ink-doux);margin-top:10px}
+.bloc{padding:64px 0;border-top:1px solid var(--trait)}
+.bloc p{max-width:64ch;color:var(--ink-doux)}
+@media(max-width:760px){
+  .duo{grid-template-columns:1fr;gap:34px;padding:46px 0}
+  .hero{padding:52px 0 42px}
+}
+
+/* ---------- Cartes d'articles ---------- */
+.post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px;padding:14px 0 76px}
+.post-card{
+  display:block;text-decoration:none;background:#fff;
+  border:1px solid var(--trait);padding:26px 24px 28px;
+  transition:border-color .18s ease,transform .18s ease;
+}
+.post-card:hover{border-color:var(--color-accent);transform:translateY(-2px)}
+.post-card h2{font-size:21px;margin:8px 0 10px;line-height:1.3}
+.post-card p{font-size:15px;color:var(--ink-doux);margin:0}
+.post-card .kicker{display:block}
+
+.vide{color:var(--ink-doux);padding:10px 0 70px;font-size:16px}
+
+/* ---------- Pied de page ---------- */
+.site-footer{
+  border-top:1px solid var(--trait);background:var(--papier-fonce);
+  padding:34px 0;margin-top:40px;
+}
+.site-footer p{margin:0;font-size:13px;color:var(--ink-doux)}

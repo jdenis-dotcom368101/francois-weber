@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actualités — Solène Norvenne</title>
+<meta name="description" content="Notes d'atelier, genèse des pièces, expositions et publications de Solène Norvenne.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header"><div class="inner">
+  <a class="site-logo" href="../">Solène Norvenne</a>
+  <nav class="site-nav" aria-label="Navigation principale">
+    <a href="../">Accueil</a>
+    <a href="./" aria-current="page">Actualités</a>
+  </nav>
+</div></header>
+
+<main>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../">Accueil</a> › Actualités</nav>
+    <h1>Actualités</h1>
+    <p class="vide" id="vide">Aucun texte publié pour le moment.</p>
+
+    <div class="post-grid" id="grille">
+            <!-- STUDIO_CARDS -->
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="container">
+  <p>© 2026 — Solène Norvenne, plasticienne. Site de démonstration.</p>
+</div></footer>
+
+<script>
+  // Le bandeau « aucun texte » disparaît dès la première carte insérée par le Studio.
+  if (document.querySelectorAll('#grille .post-card').length) {
+    document.getElementById('vide').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

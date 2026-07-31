@@ -1,5 +1,2 @@
 User-agent: *
 Disallow: /
-
-# Site de démonstration : on ne veut pas le voir dans les moteurs.
-# Retirer la ligne Disallow si la démo doit montrer une indexation réelle.

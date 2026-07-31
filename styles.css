@@ -1,109 +1,189 @@
-:root{
-  --color-accent:#a8672a;
-  --ink:#16150f;
-  --ink-doux:#5d5a4f;
-  --papier:#f7f4ee;
-  --papier-fonce:#eee9df;
-  --trait:#ddd6c7;
+/* François Weber — feuille de style unique.
+   Parti pris : une seule famille (serif), un seul corps de texte, colonne unique,
+   ratios d'images variables, beaucoup de vide au-dessus du contenu. */
+
+:root {
+  --color-accent: #7c2d12;
+  --gris: #6f6f6f;
+  --trait: #e2e0dc;
+  --papier: #fbfaf8;
+  --encre: #17150f;
+  --gap: 18px;
+  --haut: 190px;
+  --colonne: 640px;
+  --large: 1180px;
 }
 
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0;background:var(--papier);color:var(--ink);
-  font-family:'Inter',-apple-system,Helvetica,Arial,sans-serif;
-  font-size:17px;line-height:1.65;font-weight:400;
-}
-img{max-width:100%;height:auto;display:block}
-a{color:var(--ink);text-decoration-color:var(--trait);text-underline-offset:3px}
-a:hover{text-decoration-color:var(--color-accent)}
+*, *::before, *::after { box-sizing: border-box; }
 
-.container{max-width:1080px;margin:0 auto;padding:0 28px}
+html { -webkit-text-size-adjust: 100%; }
 
-/* ---------- En-tête ---------- */
-.site-header{
-  border-bottom:1px solid var(--trait);background:var(--papier);
-  position:sticky;top:0;z-index:10;
-}
-.site-header .inner{
-  max-width:1080px;margin:0 auto;padding:20px 28px;
-  display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;
-}
-.site-logo{
-  font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:700;
-  letter-spacing:-.01em;text-decoration:none;
-}
-.site-nav{display:flex;gap:26px}
-.site-nav a{
-  font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
-  color:var(--ink-doux);text-decoration:none;padding-bottom:3px;
-  border-bottom:1px solid transparent;
-}
-.site-nav a:hover,.site-nav a[aria-current="page"]{
-  color:var(--ink);border-bottom-color:var(--color-accent);
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--encre);
+  font-family: Newsreader, "Times New Roman", Times, serif;
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- Titres ---------- */
-h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.2;letter-spacing:-.015em}
-h1{font-size:clamp(31px,4.6vw,50px);margin:.4em 0 .3em}
-h2{font-size:clamp(23px,2.7vw,31px);margin:1.9em 0 .5em}
-h3{font-size:20px;margin:1.6em 0 .4em}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
 
-/* ---------- Fil d'Ariane ---------- */
-.breadcrumb{
-  font-size:12px;letter-spacing:.05em;color:var(--ink-doux);
-  padding:22px 0 0;
+/* ---- bandeau de démonstration ---------------------------------------- */
+
+.demo-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: var(--encre); color: #f4f1ea;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase;
+  padding: 7px var(--gap); text-align: center;
 }
-.breadcrumb a{color:var(--ink-doux);text-decoration:none}
-.breadcrumb a:hover{color:var(--color-accent)}
+.demo-bar strong { font-weight: 600; }
 
-/* ---------- Article ---------- */
-article p{margin:0 0 1.15em}
-article ul,article ol{margin:0 0 1.3em;padding-left:1.25em}
-article li{margin-bottom:.45em}
-article blockquote{
-  margin:1.8em 0;padding:2px 0 2px 22px;border-left:2px solid var(--color-accent);
-  font-family:'Playfair Display',Georgia,serif;font-size:21px;line-height:1.45;
+/* ---- en-tête ---------------------------------------------------------- */
+
+.site-header {
+  position: relative; z-index: 40;
+  padding: 46px var(--gap) 0;
 }
-article table{border-collapse:collapse;width:100%;margin:1.6em 0;font-size:15px}
-article th,article td{border:1px solid var(--trait);padding:9px 12px;text-align:left}
-article th{background:var(--papier-fonce);font-weight:600}
-
-/* ---------- Accueil ---------- */
-.hero{padding:82px 0 60px;border-bottom:1px solid var(--trait)}
-.hero .accroche{
-  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--color-accent);font-weight:700;margin:0 0 14px;
+.site-header .inner {
+  max-width: var(--large); margin: 0 auto;
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
 }
-.hero h1{margin-top:0;max-width:17ch}
-.hero .chapo{font-size:20px;line-height:1.6;color:var(--ink-doux);max-width:60ch;margin:0}
+.site-logo {
+  font-size: 19px; letter-spacing: .01em; text-decoration: none;
+  font-weight: 500;
+}
+.site-nav { display: flex; gap: 22px; }
+.site-nav a {
+  text-decoration: none; color: var(--gris);
+  font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] { color: var(--encre); }
 
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;padding:70px 0}
-.duo figcaption{font-size:13px;color:var(--ink-doux);margin-top:10px}
-.bloc{padding:64px 0;border-top:1px solid var(--trait)}
-.bloc p{max-width:64ch;color:var(--ink-doux)}
-@media(max-width:760px){
-  .duo{grid-template-columns:1fr;gap:34px;padding:46px 0}
-  .hero{padding:52px 0 42px}
+/* ---- corps ------------------------------------------------------------ */
+
+main { padding-top: var(--haut); padding-bottom: 120px; }
+
+.container {
+  max-width: var(--large);
+  margin: 0 auto;
+  padding: 0 var(--gap);
 }
 
-/* ---------- Cartes d'articles ---------- */
-.post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px;padding:14px 0 76px}
-.post-card{
-  display:block;text-decoration:none;background:#fff;
-  border:1px solid var(--trait);padding:26px 24px 28px;
-  transition:border-color .18s ease,transform .18s ease;
-}
-.post-card:hover{border-color:var(--color-accent);transform:translateY(-2px)}
-.post-card h2{font-size:21px;margin:8px 0 10px;line-height:1.3}
-.post-card p{font-size:15px;color:var(--ink-doux);margin:0}
-.post-card .kicker{display:block}
+.mesure { max-width: var(--colonne); }
 
-.vide{color:var(--ink-doux);padding:10px 0 70px;font-size:16px}
-
-/* ---------- Pied de page ---------- */
-.site-footer{
-  border-top:1px solid var(--trait);background:var(--papier-fonce);
-  padding:34px 0;margin-top:40px;
+h1 {
+  font-size: 30px; line-height: 1.25; font-weight: 400;
+  margin: 0 0 26px; max-width: 15ch;
 }
-.site-footer p{margin:0;font-size:13px;color:var(--ink-doux)}
+h2 {
+  font-size: 12px; letter-spacing: .11em; text-transform: uppercase;
+  font-weight: 500; color: var(--gris);
+  margin: 0 0 18px;
+}
+h3 { font-size: 15px; font-weight: 500; margin: 0 0 6px; }
+
+p { margin: 0 0 16px; max-width: var(--colonne); }
+
+.retrait { margin-top: 96px; }
+
+blockquote {
+  margin: 0 0 16px; padding: 0;
+  font-size: 20px; line-height: 1.4; max-width: 22ch;
+}
+
+/* ---- œuvres ----------------------------------------------------------- */
+
+figure { margin: 0 0 58px; }
+figure img { width: 100%; }
+figcaption {
+  margin-top: 10px;
+  font-size: 12px; line-height: 1.45; color: var(--gris);
+  max-width: 46ch;
+}
+figcaption em { font-style: italic; }
+
+.suite { display: flex; flex-direction: column; }
+.suite .l  { max-width: 100%; }
+.suite .m  { max-width: 720px; }
+.suite .s  { max-width: 460px; }
+.suite .droite { margin-left: auto; }
+
+/* ---- listes (expositions, index) -------------------------------------- */
+
+.liste { border-top: 1px solid var(--trait); max-width: var(--colonne); }
+.liste li {
+  list-style: none;
+  padding: 13px 0; border-bottom: 1px solid var(--trait);
+}
+.liste { padding-left: 0; margin: 0 0 54px; }
+.liste .lieu { display: block; }
+.liste .an {
+  display: block; color: var(--gris);
+  font-size: 12px; letter-spacing: .06em;
+}
+
+/* ---- cartes d'articles (produites par le Studio) ---------------------- */
+
+.post-grid { display: flex; flex-direction: column; max-width: var(--colonne); }
+
+.post-card {
+  display: block; text-decoration: none;
+  padding: 22px 0; border-bottom: 1px solid var(--trait);
+}
+.post-card:first-child { border-top: 1px solid var(--trait); }
+.post-card .kicker {
+  display: block; margin-bottom: 5px;
+  font-size: 11px !important; letter-spacing: .1em; text-transform: uppercase;
+}
+.post-card h2 {
+  font-size: 18px; line-height: 1.3; font-weight: 400;
+  color: var(--encre); text-transform: none; letter-spacing: 0;
+  margin: 0 0 5px;
+}
+.post-card p { font-size: 13px; color: var(--gris); margin: 0; }
+.post-card:hover h2 { color: var(--color-accent); }
+
+/* ---- article publié --------------------------------------------------- */
+
+.breadcrumb {
+  font-size: 11px; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--gris); margin-bottom: 34px;
+}
+.breadcrumb a { text-decoration: none; }
+
+article.container { max-width: var(--colonne); }
+article.container h1 { max-width: 24ch; }
+article.container h2 {
+  font-size: 17px; letter-spacing: 0; text-transform: none;
+  color: var(--encre); font-weight: 500;
+  margin: 40px 0 12px;
+}
+article.container h3 { margin: 28px 0 8px; }
+article.container ul, article.container ol { padding-left: 20px; }
+article.container li { margin-bottom: 7px; }
+article.container img { margin: 30px 0; }
+
+/* ---- pied ------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--trait);
+  padding: 26px var(--gap) 80px;
+  font-size: 12px; color: var(--gris);
+}
+.site-footer .container { padding: 0 var(--gap); }
+.site-footer p { margin: 0; max-width: none; }
+.site-footer a { text-decoration: none; }
+
+@media (max-width: 700px) {
+  :root { --haut: 96px; }
+  h1 { font-size: 25px; max-width: none; }
+  .site-header { padding-top: 42px; }
+  figure { margin-bottom: 40px; }
+}

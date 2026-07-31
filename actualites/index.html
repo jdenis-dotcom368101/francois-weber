@@ -3,44 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Actualités — Solène Norvenne</title>
-<meta name="description" content="Notes d'atelier, genèse des pièces, expositions et publications de Solène Norvenne.">
+<title>Actualités — François Weber</title>
+<meta name="description" content="Notes d'atelier et actualités de François Weber, peintre.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
+<div class="demo-bar">Site de démonstration — <strong>Studio Contenu, Édition Galeries &amp; Artistes</strong>. Articles produits automatiquement.</div>
+
 <header class="site-header"><div class="inner">
-  <a class="site-logo" href="../">Solène Norvenne</a>
+  <a class="site-logo" href="../">François Weber</a>
   <nav class="site-nav" aria-label="Navigation principale">
     <a href="../">Accueil</a>
+    <a href="../oeuvres/">Œuvres</a>
+    <a href="../expositions/">Expositions</a>
     <a href="./" aria-current="page">Actualités</a>
   </nav>
 </div></header>
 
 <main>
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../">Accueil</a> › Actualités</nav>
-    <h1>Actualités</h1>
-    <p class="vide" id="vide">Aucun texte publié pour le moment.</p>
 
+  <div class="container">
+    <h1>Actualités</h1>
+    <p class="mesure">Notes d'atelier, expositions, publications.</p>
+  </div>
+
+  <div class="container retrait">
     <div class="post-grid" id="grille">
-            <!-- STUDIO_CARDS -->
+      <!-- STUDIO_CARDS -->
+      <p id="vide" style="color:#6f6f6f;font-size:13px;">Rien de publié pour le moment.</p>
     </div>
   </div>
+
 </main>
 
 <footer class="site-footer"><div class="container">
-  <p>© 2026 — Solène Norvenne, plasticienne. Site de démonstration.</p>
+  <p>© François Weber. Site de démonstration, sans valeur commerciale.</p>
 </div></footer>
 
 <script>
-  // Le bandeau « aucun texte » disparaît dès la première carte insérée par le Studio.
-  if (document.querySelectorAll('#grille .post-card').length) {
-    document.getElementById('vide').style.display = 'none';
-  }
+  (function () {
+    var g = document.getElementById('grille'), v = document.getElementById('vide');
+    if (v && g && g.querySelector('.post-card')) v.remove();
+  })();
 </script>
 
 </body>
